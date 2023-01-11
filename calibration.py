@@ -46,7 +46,7 @@ def calibrate(dirpath, square_size, width, height, visualize=False):
 
         if visualize:
             cv2.namedWindow("output", cv2.WINDOW_NORMAL)
-            cv2.imshow('img',img)
+            cv2.imshow('img', img)
             cv2.waitKey(10)
 
 

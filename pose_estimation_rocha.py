@@ -37,7 +37,7 @@ def pose_estimation(frame, aruco_dict_type, matrix_coefficients, distortion_coef
         for i in range(0, len(ids)):
             # Estimate pose of each marker and return the values rvec and tvec---(different
             # from those of camera coefficients)
-            rvec, tvec, markerPoints = cv2.aruco.estimatePoseSingleMarkers(corners[i], 0.02, matrix_coefficients,
+            rvec, tvec, markerPoints = cv2.aruco.estimatePoseSingleMarkers(corners[i], 0.16, matrix_coefficients,
                                                                        distortion_coefficients)
             print('rotation vector: ', rvec)
             print('translation vector: ', tvec)
@@ -76,6 +76,11 @@ if __name__ == '__main__':
     distortion_coefficients_path = args["D_Coeff"]
     k = np.load(calibration_matrix_path)
     d = np.load(distortion_coefficients_path)
+
+    x_lst = []
+    y_lst = []
+    z_lst = []
+
     time.sleep(0.1)
     while True:
         ret, frame = video.read()
